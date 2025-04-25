@@ -2,7 +2,7 @@
     $nameserve = "localhost";
     $username = "root";
     $password = "";
-    $namedb = "";
+    $namedb = "pkktugasakhir";
 
     $conns = mysqli_connect($nameserve, $username, $password, $namedb);
     if ($conns->connect_error) {
