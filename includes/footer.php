@@ -1,6 +1,6 @@
     <footer class="py-4 bg-dark text-white text-center">
       <div class="container">
-        <p class="mb-0">&copy; <?= date('Y') ?> Toko Baju. Dibuat oleh Tim Dev.</p>
+        <p class="mb-0">&copy; <?= date('Y') ?> QClothes. Dibuat oleh Devg4 Team.</p>
       </div>
     </footer>
 

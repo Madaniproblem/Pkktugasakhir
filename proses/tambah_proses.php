@@ -1,5 +1,5 @@
 <?php
-include('../db.php');
+include('../connectionsql/sqlconnection.php');
 
 $nama = $_POST['nama'];
 $deskripsi = $_POST['deskripsi'];
@@ -9,9 +9,10 @@ $tmp = $_FILES['gambar']['tmp_name'];
 $folder = "../img/" . $gambar;
 
 if (move_uploaded_file($tmp, $folder)) {
-  $query = "INSERT INTO produk (nama_produk,deskripsi, harga, gambar) VALUES ('$nama','$deskripsi', '$harga', '$gambar')";
-  if ($conn->query($query)) {
-    header("Location: ../admin/dashboard.php");
+  $query = "INSERT INTO products (product_name,description,product_price,product_img) VALUES ('$nama','$deskripsi', '$harga', '$gambar')";
+  if ($conns->query($query)) {
+    echo "<script>alert('Data berhasil ditambahkan!'); window.location.href = '../dashboard.php';</script>";
+    exit();
   } else {
     echo "Gagal simpan data!";
   }

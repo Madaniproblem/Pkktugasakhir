@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin'])) header("Location: login.php");
     </div>
     <!-- Deksripsi Produk -->
     <button type="submit" class="btn btn-primary">Simpan</button>
-    <a href="dashboard.php" class="btn btn-secondary">Kembali</a>
+    <a href="../dashboard.php" class="btn btn-secondary">Kembali</a>
   </form>
 </div>
 </body>

@@ -5,9 +5,9 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    header("Location: ../proses/hapus_proses.php?id=$id");
+if (isset($_GET['id_product'])) {
+    $id = $_GET['id_product'];
+    header("Location: ../proses/hapus_proses.php?id_product=$id");
     exit;
 } else {
     echo "ID tidak ditemukan!";

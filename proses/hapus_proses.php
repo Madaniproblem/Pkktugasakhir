@@ -1,6 +1,6 @@
 <?php
-include('../db.php');
-$id = $_GET['id'];
-$conn->query("DELETE FROM produk WHERE id=$id");
-header("Location: ../admin/dashboard.php");
+include('../connectionsql/sqlconnection.php');
+$id = $_GET['id_product'];
+$conns->query("DELETE FROM products WHERE id_product=$id");
+header("Location: ../dashboard.php");
 ?>

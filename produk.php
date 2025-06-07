@@ -1,5 +1,5 @@
 <?php include('includes/header.php'); ?>
-<?php include 'db.php'; ?>
+<?php include 'connectionsql/sqlconnection.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,7 +10,7 @@
     body {
       background-color: #f8f9fa;
     }
-   .produk-section {
+  .produk-section {
     background: linear-gradient(to bottom right,rgb(79, 79, 79),rgb(171, 171, 171)); /* warna senada banner */
     color: white;
     }
@@ -43,16 +43,16 @@
   <h2 class="mb-4 text-center">Daftar Produk Kami</h2>
   <div class="row g-4">
     <?php
-    $produk = $conn->query("SELECT * FROM produk ORDER BY id DESC");
+    $produk = $conns->query("SELECT * FROM products ORDER BY id_product DESC");
     while ($row = $produk->fetch_assoc()):
     ?>
       <div class="col-md-4 col-sm-6">
         <div class="card card-product h-100">
-          <img src="img/<?= $row['gambar'] ?>" class="card-img-top" alt="<?= $row['nama_produk'] ?>">
+          <img src="img/<?= $row['product_img'] ?>" class="card-img-top" style="height:350px" alt="<?= $row['product_name']  ?>">
           <div class="card-body">
-            <h5 class="card-title"><?= $row['nama_produk'] ?></h5>
-            <p class="card-text price-tag">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
-            <a href="detail_produk.php?id=<?= $row['id'] ?>" class="btn btn-outline-primary w-100">Lihat Detail</a>
+            <h5 class="card-title"><?= $row['product_name'] ?></h5>
+            <p class="card-text price-tag">Rp <?= number_format($row['product_price'], 0, ',', '.') ?></p>
+            <a href="detail_produk.php?id_product=<?= $row['id_product'] ?>" class="btn btn-outline-primary w-100">Lihat Detail</a>
           </div>
         </div>
       </div>

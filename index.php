@@ -2,7 +2,7 @@
 <?php include 'connectionsql/sqlconnection.php'; ?>
 <!-- Hero Banner -->
 <section class="hero">
-  <h1>Selamat Datang di Toko Baju</h1>
+  <h1>Selamat Datang di QClothes</h1>
   <p>Temukan berbagai model baju terbaru & stylish untuk semua kalangan.</p>
   <a href="produk.php" class="btn btn-warning btn-lg">Lihat Semua Produk</a>
 </section>
@@ -13,20 +13,20 @@
 </div>
 <section class="produk-section py-5 bg-light">
   <div class="container">
-    <h3 class="mb-4 text-center">Produk Terbaru</h3>
+    <h3 class="mb-5 text-center">Produk Kami</h3>
     <div class="row g-4">
       <?php
       // Ambil 5 produk terbaru
-      $produk = $conn->query("SELECT * FROM produk ORDER BY id DESC LIMIT 5");
+      $produk = $conns->query("SELECT * FROM products ORDER BY id_product DESC");
       while ($row = $produk->fetch_assoc()):
       ?>
         <div class="col-md-4 col-sm-6">
           <div class="card card-product h-100 shadow-sm border-0">
-            <img src="img/<?= $row['gambar'] ?>" class="card-img-top" alt="<?= $row['nama_produk'] ?>" style="height: 250px; object-fit: cover;">
+            <img src="img/<?= $row['product_img'] ?>" class="card-img-top" alt="<?= $row['product_name'] ?>" style="height: 350px; object-fit: cover; ">
             <div class="card-body">
-              <h5 class="card-title"><?= $row['nama_produk'] ?></h5>
-              <p class="card-text text-orange fw-bold">Rp <?= number_format($row['harga'], 0, ',', '.') ?></p>
-              <a href="detail_produk.php?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
+              <h5 class="card-title"><?= $row['product_name'] ?></h5>
+              <p class="card-text text-orange fw-bold">Rp.<?= number_format($row['product_price'], 0, ',', '.') ?></p>
+              <a href="detail_produk.php?id_product=<?= $row['id_product'] ?>" class="btn btn-sm btn-outline-primary">Lihat Detail</a>
             </div>
           </div>
         </div>
@@ -34,9 +34,6 @@
 
     </div>
 
-    <div class="text-center mt-5">
-      <a href="produk.php" class="btn btn-primary">Lihat Semua Produk</a>
-    </div>
   </div>
 </section>
 
@@ -114,64 +111,6 @@
   
 </head>
 <body>
-<section class="about-section">
-<div class="container py-5">
-  <h2 class="mb-4 text-center">Tentang Toko Baju</h2>
-  <p class="lead text-center">
-    Website <strong>Toko Baju</strong> adalah platform e-commerce sederhana yang dibuat untuk memenuhi kebutuhan belajar dan praktik membuat aplikasi CRUD menggunakan PHP, MySQL, dan Bootstrap 5. Situs ini dibuat dengan pendekatan modern dan responsif untuk pengalaman pengguna yang optimal.
-  </p>
-
-  <hr class="my-5">
-
-  <h4 class="text-center mb-4">Tim Pengembang</h4>
-  <div class="row justify-content-center">
-
-    <div class="col-md-3 mb-4">
-      <div class="card profile-card text-center">
-        <img src="https://picsum.photos/300/200?random=1" class="profile-img" alt="Desainer Web">
-        <div class="card-body">
-          <h5 class="card-title">R. Airlangga Dewanata</h5>
-          <p class="card-text">Desainer Web</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-      <div class="card profile-card text-center">
-        <img src="https://picsum.photos/300/200?random=1" class="profile-img" alt="UI/UX Designer">
-        <div class="card-body">
-          <h5 class="card-title">M. Aditya Firmansyah</h5>
-          <p class="card-text">UI/UX Designer</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-      <div class="card profile-card text-center">
-        <img src="https://picsum.photos/300/200?random=1" class="profile-img" alt="Frontend Dev">
-        <div class="card-body">
-          <h5 class="card-title">Bryan Iko Rismaputra</h5>
-          <p class="card-text">Frontend Developer</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-3 mb-4">
-      <div class="card profile-card text-center">
-        <img src="https://picsum.photos/300/200?random=1" class="profile-img" alt="Backend Dev">
-        <div class="card-body">
-          <h5 class="card-title">Thamarezki Febyanda Zahran</h5>
-          <p class="card-text">Backend Developer</p>
-        </div>
-      </div>
-    </div>
-</section>
-  </div>
-</div>
-
 </body>
 </html>
-
-
-
 <?php include('includes/footer.php'); ?>

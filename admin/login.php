@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -20,7 +22,7 @@
       <label>Password</label>
       <input type="password" name="password" class="form-control" required>
     </div>
-    <button type="submit" class="btn btn-primary w-100">Login</button>
+    <button type="submit" name="submit" class="btn btn-primary w-100 mb-3">Login</button>
   <a href="../index.php" class="btn btn-warning w-100">Back</a>
   </form>
 </div>

@@ -1,5 +1,5 @@
 <?php
-include('../db.php');
+include('../connectionsql/sqlconnection.php');
 
 $id = $_POST['id'];
 $nama = $_POST['nama'];
@@ -10,14 +10,15 @@ $tmp = $_FILES['gambar']['tmp_name'];
 
 if ($gambar != '') {
   move_uploaded_file($tmp, "../img/" . $gambar);
-  $query = "UPDATE produk SET nama_produk='$nama', deskripsi='$deskripsi', harga='$harga', gambar='$gambar' WHERE id=$id";
+  $query = "UPDATE products SET product_name='$nama', description='$deskripsi',product_price='$harga', product_img='$gambar' WHERE id_product=$id";
 } else {
-  $query = "UPDATE produk SET nama_produk='$nama', deskripsi='$deskripsi', harga='$harga' WHERE id=$id";
+  $query = "UPDATE products SET product_name='$nama', description='$deskripsi',product_price='$harga' WHERE id_product=$id";
 }
 
-if ($conn->query($query)) {
-  header("Location: ../admin/dashboard.php");
+if ($conns->query($query)) {
+  echo "<script>alert('Data berhasil diupdate!'); window.location.href = '../dashboard.php';</script>";
+  exit();
 } else {
-  echo "Gagal update data!";
+  echo "script>alert('Gagal update data!');</script>";
 }
 ?>
