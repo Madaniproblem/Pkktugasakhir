@@ -1,5 +1,5 @@
 <?php include('includes/header.php'); ?>
-<?php include 'db.php'; ?>
+<?php include 'connectionsql/sqlconnection.php'; ?>
 <!-- Hero Banner -->
 <section class="hero">
   <h1>Selamat Datang di Toko Baju</h1>

@@ -1,13 +1,13 @@
 <?php include('includes/header.php'); ?>
 <?php
-include 'db.php';
+include 'connectionsql/sqlconnection.php';
 if (!isset($_GET['id'])) {
   header("Location: produk.php");
   exit;
 }
 
 $id = $_GET['id'];
-$query = $conn->query("SELECT * FROM produk WHERE id = $id");
+$query = $conns->query("SELECT * FROM produk WHERE id = $id");
 
 if ($query->num_rows == 0) {
   echo "<h3>Produk tidak ditemukan!</h3>";
